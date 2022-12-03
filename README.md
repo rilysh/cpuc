@@ -3,10 +3,10 @@ Print information about your CPU's supported extensions.
 
 
 ## Info
-CPU-supported instructions are checked by executing them. If you're using a very old version of the Linux kernel, it may not support these extensions. Likewise, using a very new generation of hardware with a very old Linux kernel would have the same result. Overall, several features, need to be enabled at the kernel level; however, if your distribution have GCC 5+ you're good to go.
+CPU-supported instructions are checked by executing them. If you're using a very old or obscure operating system, chances are program may crash. Regarding your platform, if GCC or Clang have "cpuid.h" header file, means your OS may able to use these features, however, not exact. Definations can be declare manually too. 
 
-
-If you're using a PAE kernel, detecting architecture may return an incorrect value.
+Tested on: Void GNU/Linux and FreeBSD\
+Note: If you're using a PAE kernel, detecting architecture may return an incorrect value.
 
 ## Build
 ```sh
