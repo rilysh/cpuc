@@ -107,6 +107,9 @@ static void host_info()
         HW_FMA3     = (info[2] & bit_FMA3);
         HW_RDRAND   = (info[2] & bit_RDRND);
         HW_XSAVE    = (info[2] & bit_XSAVE);
+        HW_XSAVEOPT = (info[2] & bit_XSAVEOPT);
+
+        HW_F16C     = (info[2] & bit_F16C);
     }
 
     if (info0 >= 0x00000007) {
@@ -157,6 +160,7 @@ static void host_info()
         HW_FMA4         = (info[2] & bit_FMA4);
         HW_XOP          = (info[2] & bit_XOP);
         HW_PREFETCHW    = (info[2] & bit_PREFETCHW);
+        HW_LAHFLM       = (info[2] & bit_LAHF_LM);
     }
 }
 
@@ -192,19 +196,23 @@ static void flag_features()
         "   MPX         [%s]\n"
         "   PREFETCHW   [%s]\n"
         "   PREFETCHWT1 [%s]\n"
+        "   LAHF_LM     [%s]\n"
         "   RDPID       [%s]\n"
         "   GFNI        [%s]\n"
+        "   F16C        [%s]\n"
         "   VAES        [%s]\n"
         "   XSAVE       [%s]\n"
+        "   XSAVEOPT    [%s]\n"
         , wrap_ret(os_AVX()), wrap_ret(os_AVX512()),
         wrap_ret(HW_MMX), wrap_ret(HW_x64),
         wrap_ret(HW_ABM), wrap_ret(HW_RDRAND),
         wrap_ret(HW_RDSEED), wrap_ret(HW_BMI),
         wrap_ret(HW_BMI2), wrap_ret(HW_ADX),
         wrap_ret(HW_MPX), wrap_ret(HW_PREFETCHW),
-        wrap_ret(HW_PREFETCHWT1), wrap_ret(HW_RDPID),
+        wrap_ret(HW_PREFETCHWT1), wrap_ret(HW_LAHFLM),
+        wrap_ret(HW_RDPID), wrap_ret(HW_F16C),
         wrap_ret(HW_GFNI), wrap_ret(HW_VAES),
-        wrap_ret(HW_XSAVE)
+        wrap_ret(HW_XSAVE), wrap_ret(HW_XSAVEOPT)
     );
 }
 
@@ -303,10 +311,13 @@ static void flag_all()
         "   MPX                 [%s]\n"
         "   PREFETCHW           [%s]\n"
         "   PREFETCHWT1         [%s]\n"
+        "   LAHF_LM             [%s]\n"
         "   RDPID               [%s]\n"
         "   GFNI                [%s]\n"
+        "   F16C                [%s]\n"
         "   VAES                [%s]\n"
-        "   XSAVE               [%s]\n\n"
+        "   XSAVE               [%s]\n"
+        "   XSAVEOPT            [%s]\n\n"
         "SIMD 128-bit:\n"
         "   SSE                 [%s]\n"
         "   SSE2                [%s]\n"
@@ -350,9 +361,10 @@ static void flag_all()
         wrap_ret(HW_RDSEED), wrap_ret(HW_BMI),
         wrap_ret(HW_BMI2), wrap_ret(HW_ADX),
         wrap_ret(HW_MPX), wrap_ret(HW_PREFETCHW),
-        wrap_ret(HW_PREFETCHWT1), wrap_ret(HW_RDPID),
-        wrap_ret(HW_GFNI), wrap_ret(HW_VAES),
-        wrap_ret(HW_XSAVE),
+        wrap_ret(HW_PREFETCHWT1), wrap_ret(HW_LAHFLM),
+        wrap_ret(HW_RDPID), wrap_ret(HW_GFNI),
+        wrap_ret(HW_F16C), wrap_ret(HW_VAES),
+        wrap_ret(HW_XSAVE), wrap_ret(HW_XSAVEOPT),
 
         wrap_ret(HW_SSE), wrap_ret(HW_SSE2),
         wrap_ret(HW_SSE3), wrap_ret(HW_SSSE3),

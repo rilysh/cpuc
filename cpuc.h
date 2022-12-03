@@ -56,6 +56,9 @@ static int HW_AES;
 static int HW_AVX;
 static int HW_FMA3;
 static int HW_RDRAND;
+static int HW_XSAVE;
+static int HW_XSAVEOPT;
+static int HW_F16C;
 
 static int HW_AVX2;
 static int HW_BMI;
@@ -92,5 +95,5 @@ static int HW_SSE4a;
 static int HW_FMA4;
 static int HW_XOP;
 static int HW_PREFETCHW;
-static int HW_XSAVE;
+static int HW_LAHFLM;
 #endif /* _CPUC_H_ */
