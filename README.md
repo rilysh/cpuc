@@ -12,7 +12,7 @@ Note: If you're using a PAE kernel, detecting architecture may return an incorre
 ```sh
 git clone https://github.com/rilysh/cpuc
 cd cpuc
-gcc cpuc.c -s -Os -o cpuc
+make
 ```
 
 ## Usage
@@ -28,4 +28,3 @@ cpuc --simd128 (Prints detectable SIMD 128-bit extension)
 cpuc --simd256 (Prints detectable SIMD 256-bit extension)
 cpuc --simd512 (Prints detectable SIMD 512-bit extension)
 ```
-
